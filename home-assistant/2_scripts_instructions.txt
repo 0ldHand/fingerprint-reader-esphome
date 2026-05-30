@@ -14,7 +14,7 @@ SCRIPT 1: enroll_new_fingerprint
 1. Go to **Settings → Automations & Scenes → Scripts**
 2. Click **+ Create Script**
 3. Click the three dots (⋮) in the top right → **Edit in YAML**
-4. Delete everything and paste the contents of enroll-script.yaml
+4. Delete everything and paste the contents of enroll_new_fingerprint.yaml
 5. Click **Save Script**
 
 ────────────────────────────────────────────────────────────────────────────────
@@ -23,7 +23,7 @@ SCRIPT 2: delete_fingerprint
 
 1. Click **+ Create Script** again
 2. Click the three dots (⋮) → **Edit in YAML**
-4. Delete everything and paste the contents of delete-script.yaml
+4. Delete everything and paste the contents of delete_fingerprint.yaml
 5. Click **Save Script**
 You now have two scripts ready to use from the dashboard.
 ================================================================================
