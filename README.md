@@ -5,7 +5,6 @@ A compact, reliable, and low-power fingerprint reader designed for Home Assistan
 ![Fingerprint Reader](images/IMG_1782.gif)  
 
 
-
 ---
 
 ## ✨ Features
@@ -114,7 +113,7 @@ If not, click + Add Integration → Search for ESPHome → Select your device
 
 ## 📊 Dashboard
 
-A clean and functional Home Assistant dashboard is included in the (home-assistant/dashboard.yaml) file.
+A clean and functional Home Assistant dashboard is included in the ['home-assistant/dashboard.yaml'](home-assistant/dashboard.yaml) file.
 
 Features:
 - Real-time fingerprint status
