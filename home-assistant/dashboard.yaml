@@ -1,1 +1,49 @@
+title: Fingerprint Reader
+views:
+  - title: Fingerprint Reader
+    path: fingerprint
+    icon: mdi:fingerprint
+    cards:
+      - type: entities
+        title: Fingerprint Status
+        show_header_toggle: false
+        entities:
+          - entity: sensor.fingerprint_reader_stored_fingerprints
+            name: Stored Fingerprints
+          - entity: sensor.fingerprint_reader_last_scanned_finger_id
+            name: Last Scanned ID
+          - entity: sensor.fingerprint_reader_last_scan_confidence
+            name: Last Confidence
+          - entity: sensor.fingerprint_reader_wifi_signal
+            name: WiFi Signal
+            icon: mdi:wifi
+      - type: entities
+        title: Enroll or Delete Fingerprint
+        show_header_toggle: false
+        entities:
+          - entity: input_number.fingerprint_id
+            name: Fingerprint ID
+      - type: button
+        name: Start Enrollment
+        icon: mdi:fingerprint
+        tap_action:
+          action: call-service
+          service: script.enroll_new_fingerprint
+        show_icon: true
+      - type: horizontal-stack
+        cards:
+          - show_name: true
+            show_icon: true
+            type: button
+            name: Delete ID
+            icon: mdi:fingerprint-off
+            tap_action:
+              action: call-service
+              service: script.delete_fingerprint
+          - type: button
+            name: Delete All
+            icon: mdi:delete-forever
+            tap_action:
+              action: call-service
+              service: esphome.fingerprint_reader_delete_all
 
