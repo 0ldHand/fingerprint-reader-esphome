@@ -1,0 +1,31 @@
+================================================================================
+           INSTRUCTION 1: CREATE THE FINGERPRINT ID HELPER
+================================================================================
+
+This helper lets you choose which fingerprint ID to enroll or delete.
+
+STEP-BY-STEP:
+
+1. Open Home Assistant
+2. Go to **Settings** (bottom left)
+3. Click **Devices & Services**
+4. Click the **Helpers** tab at the top
+5. Click the big **+ Create Helper** button
+6. Choose **Number**
+7. Fill in the following exactly:
+
+   Name:                    Fingerprint ID
+   Icon:                    mdi:fingerprint
+   Minimum value:           1
+   Maximum value:           127
+   Step size:               1
+   Mode:                    Box (or Slider - your choice)
+   Unit of measurement:     (leave blank)
+
+8. Click **Create**
+
+You should now see a new helper called:
+`input_number.fingerprint_id`
+
+This is what you will use in the dashboard to select which fingerprint to enroll or delete.
+================================================================================
