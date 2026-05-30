@@ -1,0 +1,13 @@
+================================================================================
+           INSTRUCTION 3: ADD THE DASHBOARD
+================================================================================
+
+
+1. In Edit Dashboard mode, click the three dots (⋮) → **Raw configuration editor**
+2. Delete everything and paste the full YAML from the file:
+   `home-assistant/dashboard.yaml`
+
+3. Click **Save**
+
+This is the cleanest and fastest method if you want the exact layout.
+================================================================================
