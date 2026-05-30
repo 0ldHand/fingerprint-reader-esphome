@@ -1,1 +1,7 @@
-
+alias: Delete Fingerprint
+icon: mdi:fingerprint-off
+sequence:
+  - data:
+      finger_id: "{{ states('input_number.fingerprint_id') | int }}"
+    action: esphome.fingerprint_reader_delete
+description: ""
