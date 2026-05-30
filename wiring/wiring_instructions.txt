@@ -1,1 +1,130 @@
+================================================================================
+           BATTERY-POWERED FINGERPRINT READER - WIRING INSTRUCTIONS
+                    Seeed Xiao ESP32-C6 + Grow R503 Sensor
+================================================================================
+
+This guide covers the complete wiring for the ESPHome-based fingerprint reader
+with power-saving mode, external antenna, and long battery life.
+
+--------------------------------------------------------------------------------
+                           1. PINOUT SUMMARY
+--------------------------------------------------------------------------------
+
+R503 Fingerprint Sensor (6 wires):
+  Red                = VCC (Main Power)     → Through PNP Transistor Collector
+  Black              = GND                  → Common Ground
+  Yellow             = TX (Data Out)        → GPIO17 (D7 on front)
+  Green or Brown     = RX (Data In)         → GPIO16 (D6 on front)
+  Blue               = Sensing (Touch)      → GPIO2  (D2 on front)
+  White              = 3.3VT (Touch Power)  → Direct to 3V3 (bypass transistor)
+
+PNP Transistor (BC327):
+  Emitter   → 3V3 (Xiao)
+  Collector → Red wire (R503 VCC)
+  Base      → 10kΩ Resistor → GPIO19 (D8 on front)
+
+Power:
+  2× 18650 cells + BMS → Xiao battery pads (+ and - on back)
+
+--------------------------------------------------------------------------------
+                        2. DETAILED WIRING TABLE
+--------------------------------------------------------------------------------
+
+| Component          | Wire / Pin          | Connect To                  | Notes |
+|--------------------|---------------------|-----------------------------|-------|
+| R503 Sensor        | Red (VCC)           | Transistor Collector        | Main power (switched) |
+| R503 Sensor        | Black (GND)         | Common GND                  | - |
+| R503 Sensor        | Yellow (TX)         | GPIO17 (D7)                 | UART RX on ESP32 |
+| R503 Sensor        | Green/Brown (RX)    | GPIO16 (D6)                 | UART TX on ESP32 |
+| R503 Sensor        | Blue (Sensing)      | GPIO2 (D2)                  | Touch detection |
+| R503 Sensor        | White (3.3VT)       | 3V3 (Xiao)                  | Must stay powered |
+| PNP Transistor     | Emitter             | 3V3 (Xiao)                  | Power source |
+| PNP Transistor     | Collector           | Red wire (R503)             | Switched power |
+| PNP Transistor     | Base                | 10kΩ Resistor → GPIO19 (D8) | Control pin |
+| Battery Pack       | +                   | Xiao BAT+ (back)            | From BMS |
+| Battery Pack       | -                   | Xiao GND (back)             | From BMS |
+
+--------------------------------------------------------------------------------
+                    3. STEP-BY-STEP WIRING INSTRUCTIONS
+--------------------------------------------------------------------------------
+
+STEP 1: Prepare the Transistor Circuit (Power Control)
+----------------------------------------------------
+1. Take the BC327 PNP transistor.
+2. Solder a 10kΩ resistor to the Base leg.
+3. Connect the other end of the 10k resistor to GPIO19 (D8 on front).
+4. Connect the Emitter leg to 3V3 on the Xiao.
+5. Connect the Collector leg to the Red wire of the R503 sensor.
+
+STEP 2: Connect the R503 Sensor
+-------------------------------
+1. Connect White wire (3.3VT) directly to 3V3 on the Xiao.
+2. Connect Black wire (GND) to any GND pad on the Xiao.
+3. Connect Yellow wire (TX) to GPIO17 (D7 on front).
+4. Connect Green wire (RX) to GPIO16 (D6 on front).
+5. Connect Blue wire (Sensing) to GPIO2 (D2 on front).
+6. Connect Red wire (VCC) to the Transistor Collector (from Step 1).
+
+STEP 3: Connect External Antenna
+--------------------------------
+1. Connect u.FL antenna to the Xiao (if not already done).
+
+STEP 4: Connect Battery Pack
+----------------------------
+1. Connect the output of the 18650 BMS to the battery pads on the back of the Xiao:
+   - BMS + → Xiao BAT+
+   - BMS - → Xiao GND (any ground pad)
+2. Make sure the BMS is properly connected to the two 18650 cells in parallel.
+
+STEP 5: Double-Check All Connections
+------------------------------------
+- White wire → Direct 3V3 (never switched)
+- Red wire → Only through transistor
+- No wires connected to 5V
+- All GNDs are common
+
+--------------------------------------------------------------------------------
+                      4. TEXT DIAGRAM - TRANSISTOR WIRING
+--------------------------------------------------------------------------------
+
+                  3V3 (Xiao)
+                     │
+                     │
+                  Emitter
+                     │
+              [ BC327 PNP Transistor ]
+                     │
+                  Collector ──────── Red Wire (R503 VCC)
+                     │
+Base ───[ 10kΩ ]─────┘
+                     │
+                  GPIO19 (D8)
+
+White Wire (3.3VT on sensor) ──────→ 3V3 (direct, bypass transistor)
+
+--------------------------------------------------------------------------------
+                           5. FINAL CHECKLIST
+--------------------------------------------------------------------------------
+
+□ White wire connected directly to 3V3
+□ Red wire connected only through transistor Collector
+□ Yellow → GPIO17 (D7)
+□ Green/Br → GPIO16 (D6)
+□ Blue → GPIO2 (D2)
+□ Transistor Base → 10k resistor → GPIO19 (D8)
+□ Battery connected to back pads via BMS
+□ No wires on 5V pin
+□ All grounds common
+
+--------------------------------------------------------------------------------
+                              NOTES
+--------------------------------------------------------------------------------
+
+- The White wire (3.3VT) MUST stay powered at all times for touch detection.
+- Only the Red wire (VCC) is switched by the transistor for power saving.
+- After wiring, flash the ESPHome config and test the sensor LED turns on when finger is pressed.
+
+================================================================================
+                              END OF INSTRUCTIONS
+================================================================================
 
