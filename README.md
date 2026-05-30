@@ -135,21 +135,6 @@ Features:
 
 ---
 
-## 📁 Repository Structure
-fingerprint-reader-esphome/
-├── README.md
-├── esp-home/
-│   └── fingerprint-reader.yaml
-├── home-assistant/
-│   ├── dashboard.yaml
-│   └── scripts.yaml
-├── wiring/
-│   └── wiring_instructions.txt
-├── 3d-models/
-│   └── r503_flip_cover.stl
-└── images/
-
----
 
 ## 🙏 Credits
 
