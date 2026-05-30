@@ -1,1 +1,15 @@
-
+alias: Enroll New Fingerprint
+icon: mdi:fingerprint
+sequence:
+  - data:
+      finger_id: "{{ states('input_number.fingerprint_id') | int }}"
+      num_scans: 2
+    action: esphome.fingerprint_reader_enroll
+  - delay: 1
+  - data:
+      title: Fingerprint Enrollment
+      message: >-
+        Enrollment started for ID {{ states('input_number.fingerprint_id') }}.
+        Place your finger twice when the LED turns purple.
+    action: notify.persistent_notification
+description: ""
