@@ -10,7 +10,7 @@ A compact, reliable, and low-power fingerprint reader designed for Home Assistan
 ## ✨ Features
 
 - Full Home Assistant integration (events + services)
-- Beautiful LED feedback (Green = Match, Red = No Match, Purple = Enrolling, etc.)
+- LED feedback (Green = Match, Red = No Match, Purple = Enrolling, etc.)
 - Power-saving mode — sensor sleeps after 15 seconds of inactivity
 - External 2.4GHz WiFi antenna for strong signal
 - Battery powered with 2× 18650 cells (~6400mAh total)
@@ -73,9 +73,9 @@ This is the easiest way to install the firmware.
 
 Make sure you have created the following secrets containing values for your env (Top right in esphome builder)
 
-wifi_ssid
-wifi_password
-api_encryption_key (create a 32-byte Base64-encoded key for this. e.g. 'openssl rand -base64 32')
+1. wifi_ssid
+2. wifi_password
+3. api_encryption_key (create a 32-byte Base64-encoded key for this. e.g. 'openssl rand -base64 32')
 
 ### Step 4: Install the Firmware
 
