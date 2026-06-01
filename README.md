@@ -134,6 +134,10 @@ Features:
 
 ---
 
+## To-Do 
+1. Impliment essp32c6 deep sleep feature (shouuld drop idle power consuumption down to about 5 micro amps)
+2. Add battery voltage monitor service (needs a simple voltage divider)
+
 
 ## 🙏 Credits
 
