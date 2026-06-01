@@ -1,6 +1,6 @@
 # Battery-Powered Fingerprint Reader for Home Assistant
 
-A compact, reliable, and low-power fingerprint reader designed for Home Assistant. Built around the Seeed Xiao ESP32-C6 and Grow R503 sensor, with power-saving sleep mode, external antenna for excellent WiFi range, and full Home Assistant integration.
+A compact, reliable, and low-power fingerprint reader designed for Home Assistant. Built around the Seed Xiao ESP32-C6 and Grow R503 sensor, with power-saving sensor sleep mode, external antenna for excellent WiFi range, and full Home Assistant integration.
 
 ![Fingerprint Reader](images/IMG_1782.gif)  
 
